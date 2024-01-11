@@ -1,0 +1,2 @@
+FeedType^Program^FeedDate^FBCSDatabaseID^Rowcount^TransferBegTime^TransferEndTime^FileSize
+D^FBCS^20120816^CMS0^144^20120816 08:31:03^20120816 08:31:04^7168

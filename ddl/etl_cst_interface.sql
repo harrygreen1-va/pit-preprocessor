@@ -1,0 +1,26 @@
+create type pit_key from int
+go
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ETL_CST_INTERFACE](
+	[ECI_ID] [dbo].[pit_key] IDENTITY(1,1) NOT NULL,
+	[ECI_STATUS] [varchar](30) NULL,
+	[last_updated_date] [datetime] NULL,
+	[last_updated_user] [varchar](128) NULL,
+ CONSTRAINT [XPKETL_CST_INTERFACE] PRIMARY KEY CLUSTERED 
+(
+	[ECI_ID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ETL_CST_INTERFACE] ADD  DEFAULT (getdate()) FOR [last_updated_date]
+GO
+
+ALTER TABLE [dbo].[ETL_CST_INTERFACE] ADD  DEFAULT (suser_name()) FOR [last_updated_user]
+GO

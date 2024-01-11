@@ -1,0 +1,96 @@
+perf testing results
+preprod
+Claim:
+    'CCNNC_H200625150151': JobStats(elapsedTime=17834, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+    'CCNNC_H200625150151': JobStats(elapsedTime=17604, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+
+Line diag:
+line_diag_load, batch 'CCNNC_H200625150151': JobStats(elapsedTime=10206, inputLines=92734, failedValidation=0, inserted=92734, droppedByFirstBy=0, noData=0)
+
+line_diag_load, batch 'CCNNC_H200625150151': JobStats(elapsedTime=12653, inputLines=92734, failedValidation=0, inserted=92734, droppedByFirstBy=0, noData=0)
+
+Providers:
+Read 2514809 rows in 5642 ms
+Read 2514809 rows in 4563 ms
+
+Patients:
+Read 6185677 rows in 4656 ms
+
+Azure preprod
+hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=153294, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+2020-07-20 20:29:05.449 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=21553, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+
+# Changing commit size to 500
+2020-07-21 16:22:34.524 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=18188, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+2020-07-29 18:32:54.497 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=22305, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+# commit size 10000
+2020-07-29 18:36:17.712 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=19627, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+# After rescaling to 20 cores
+# cold
+2020-07-29 18:44:01.870 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=123267, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+# Hot
+2020-07-29 18:45:06.508 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=19844, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+# 24 cores
+Completed job hcfa_claim_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=17983, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+
+# claim line diag
+2020-07-21 16:36:52.806 INFO DbFileLoader           - Completed job line_diag_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=10299, inputLines=31623, failedValidation=0, inserted=31623, droppedByFirstBy=0, noData=0)
+
+# chunk: 1000
+Completed job line_diag_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=6295, inputLines=31623, failedValidation=0, inserted=31623, droppedByFirstBy=0, noData=0)
+24 cores
+Completed job line_diag_load, batch 'CCNNC_H200625202021': JobStats(elapsedTime=9536, inputLines=31623, failedValidation=0, inserted=31623, droppedByFirstBy=0, noData=0)
+
+# Scoring queries
+    500 patients SP with temp:
+    Read 58341 rows in 42541 ms
+    Read 58341 rows in 8490 ms
+
+    Azure:
+    Read 55523 rows in 19829 ms
+    Read 55523 rows in 4044 ms
+
+# Workload mix in Azure
+Claim load: LongSummaryStatistics{count=50, sum=1253349, min=22280, average=25066.980000, max=29214}
+CST Prof Query: LongSummaryStatistics{count=50, sum=196460, min=3247, average=3929.200000, max=6199}
+
+
+# ***New Server with new disks
+Insert by itself
+2020-08-10 14:33:14.205 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=9340, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+Claim load: LongSummaryStatistics{count=50, sum=477508, min=9186, average=9550.160000, max=11587}
+Completed job line_diag_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=4282, inputLines=31623, failedValidation=0, inserted=31623, droppedByFirstBy=0, noData=0)
+Providers
+2020-08-10 14:51:34.841 INFO QueryHelper            - Read 2513653 rows in 4423 ms
+Patients
+2020-08-10 14:52:33.726 INFO QueryHelper            - Read 6180156 rows in 4619 ms
+
+Load mix:
+Claim load: LongSummaryStatistics{count=50, sum=565748, min=9442, average=11314.960000, max=60617}
+CST Prof Query: LongSummaryStatistics{count=50, sum=220233, min=3748, average=4404.660000, max=9786}
+
+Load mix (500 patients):
+CST Prof Query: LongSummaryStatistics{count=50, sum=297521, min=4349, average=5950.420000, max=39844}
+Claim load: LongSummaryStatistics{count=50, sum=606653, min=9819, average=12133.060000, max=68782}
+
+# *** 352 prod server
+Insert by itself:
+2020-08-24 17:34:05.600 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=16099, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+Claim load: LongSummaryStatistics{count=50, sum=659812, min=10609, average=13196.240000, max=19551}
+Completed job line_diag_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=4022, inputLines=31623, failedValidation=0, inserted=31623, droppedByFirstBy=0, noData=0)
+
+CST Prof Query: LongSummaryStatistics{count=1, sum=25318, min=25318, average=25318.000000, max=25318}
+
+Load Mix:
+Claim load: LongSummaryStatistics{count=50, sum=690987, min=10583, average=13819.740000, max=21660}
+CST Prof Query: LongSummaryStatistics{count=50, sum=219585, min=3653, average=4391.700000, max=13308}
+2020-08-24 18:29:05.200 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=11355, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+
+
+
+Patients:
+2020-08-24 17:15:00.762 INFO QueryHelper            - Read 6190178 rows in 115627 ms
+
+2020-08-24 17:20:50.728 INFO DbFileLoader           - Completed job hcfa_claim_load, batch 'CCNNC_H200625162714': JobStats(elapsedTime=220689, inputLines=48263, failedValidation=0, inserted=27421, droppedByFirstBy=20842, noData=0)
+Claim load: LongSummaryStatistics{count=1, sum=221638, min=221638, average=221638.000000, max=221638}
+

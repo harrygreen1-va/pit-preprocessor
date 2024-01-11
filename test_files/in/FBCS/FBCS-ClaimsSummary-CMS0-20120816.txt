@@ -1,0 +1,145 @@
+RecordType^StationID^FormType^StatusDescription^NumberofCLAIMS
+Summary^500^1500^Total Number of Authorizations with an associated claim^0
+Summary^500^1500^Total Number of Batches^0
+Summary^500^1500^Total Number of Claims Denied^0
+Summary^500^1500^Total Number of Claims in Adjudication^0
+Summary^500^1500^Total Number of Claims in Verify^0
+Summary^500^1500^Total Number of Claims Rejected^0
+Summary^500^1500^Total Number of Claims Scanned^0
+Summary^500^1500^Total Number of Claims Suspended^0
+Summary^500^1500^Total Number of Paid Claims^0
+Summary^500A4^1500^Total Number of Authorizations with an associated claim^0
+Summary^500A4^1500^Total Number of Batches^0
+Summary^500A4^1500^Total Number of Claims Denied^0
+Summary^500A4^1500^Total Number of Claims in Adjudication^0
+Summary^500A4^1500^Total Number of Claims in Verify^0
+Summary^500A4^1500^Total Number of Claims Rejected^0
+Summary^500A4^1500^Total Number of Claims Scanned^0
+Summary^500A4^1500^Total Number of Claims Suspended^0
+Summary^500A4^1500^Total Number of Paid Claims^0
+Summary^508^1500^Total Number of Authorizations with an associated claim^0
+Summary^508^1500^Total Number of Batches^0
+Summary^508^1500^Total Number of Claims Denied^0
+Summary^508^1500^Total Number of Claims in Adjudication^0
+Summary^508^1500^Total Number of Claims in Verify^0
+Summary^508^1500^Total Number of Claims Rejected^0
+Summary^508^1500^Total Number of Claims Scanned^0
+Summary^508^1500^Total Number of Claims Suspended^0
+Summary^508^1500^Total Number of Paid Claims^0
+Summary^589^1500^Total Number of Authorizations with an associated claim^0
+Summary^589^1500^Total Number of Batches^0
+Summary^589^1500^Total Number of Claims Denied^0
+Summary^589^1500^Total Number of Claims in Adjudication^0
+Summary^589^1500^Total Number of Claims in Verify^0
+Summary^589^1500^Total Number of Claims Rejected^0
+Summary^589^1500^Total Number of Claims Scanned^0
+Summary^589^1500^Total Number of Claims Suspended^0
+Summary^589^1500^Total Number of Paid Claims^0
+Summary^657^1500^Total Number of Authorizations with an associated claim^0
+Summary^657^1500^Total Number of Batches^0
+Summary^657^1500^Total Number of Claims Denied^0
+Summary^657^1500^Total Number of Claims in Adjudication^0
+Summary^657^1500^Total Number of Claims in Verify^0
+Summary^657^1500^Total Number of Claims Rejected^0
+Summary^657^1500^Total Number of Claims Scanned^0
+Summary^657^1500^Total Number of Claims Suspended^0
+Summary^657^1500^Total Number of Paid Claims^0
+Summary^657A0^1500^Total Number of Authorizations with an associated claim^0
+Summary^657A0^1500^Total Number of Batches^0
+Summary^657A0^1500^Total Number of Claims Denied^0
+Summary^657A0^1500^Total Number of Claims in Adjudication^0
+Summary^657A0^1500^Total Number of Claims in Verify^0
+Summary^657A0^1500^Total Number of Claims Rejected^0
+Summary^657A0^1500^Total Number of Claims Scanned^0
+Summary^657A0^1500^Total Number of Claims Suspended^0
+Summary^657A0^1500^Total Number of Paid Claims^0
+Summary^657A4^1500^Total Number of Authorizations with an associated claim^0
+Summary^657A4^1500^Total Number of Batches^0
+Summary^657A4^1500^Total Number of Claims Denied^0
+Summary^657A4^1500^Total Number of Claims in Adjudication^0
+Summary^657A4^1500^Total Number of Claims in Verify^0
+Summary^657A4^1500^Total Number of Claims Rejected^0
+Summary^657A4^1500^Total Number of Claims Scanned^0
+Summary^657A4^1500^Total Number of Claims Suspended^0
+Summary^657A4^1500^Total Number of Paid Claims^0
+Summary^667^1500^Total Number of Authorizations with an associated claim^0
+Summary^667^1500^Total Number of Batches^0
+Summary^667^1500^Total Number of Claims Denied^0
+Summary^667^1500^Total Number of Claims in Adjudication^0
+Summary^667^1500^Total Number of Claims in Verify^0
+Summary^667^1500^Total Number of Claims Rejected^0
+Summary^667^1500^Total Number of Claims Scanned^0
+Summary^667^1500^Total Number of Claims Suspended^0
+Summary^667^1500^Total Number of Paid Claims^0
+Summary^500^1450^Total Number of Authorizations with an associated claim^0
+Summary^500^1450^Total Number of Batches^0
+Summary^500^1450^Total Number of Claims Denied^0
+Summary^500^1450^Total Number of Claims in Adjudication^0
+Summary^500^1450^Total Number of Claims in Verify^0
+Summary^500^1450^Total Number of Claims Rejected^0
+Summary^500^1450^Total Number of Claims Scanned^0
+Summary^500^1450^Total Number of Claims Suspended^0
+Summary^500^1450^Total Number of Paid Claims^0
+Summary^500A4^1450^Total Number of Authorizations with an associated claim^0
+Summary^500A4^1450^Total Number of Batches^0
+Summary^500A4^1450^Total Number of Claims Denied^0
+Summary^500A4^1450^Total Number of Claims in Adjudication^0
+Summary^500A4^1450^Total Number of Claims in Verify^0
+Summary^500A4^1450^Total Number of Claims Rejected^0
+Summary^500A4^1450^Total Number of Claims Scanned^0
+Summary^500A4^1450^Total Number of Claims Suspended^0
+Summary^500A4^1450^Total Number of Paid Claims^0
+Summary^508^1450^Total Number of Authorizations with an associated claim^0
+Summary^508^1450^Total Number of Batches^0
+Summary^508^1450^Total Number of Claims Denied^0
+Summary^508^1450^Total Number of Claims in Adjudication^0
+Summary^508^1450^Total Number of Claims in Verify^0
+Summary^508^1450^Total Number of Claims Rejected^0
+Summary^508^1450^Total Number of Claims Scanned^0
+Summary^508^1450^Total Number of Claims Suspended^0
+Summary^508^1450^Total Number of Paid Claims^0
+Summary^589^1450^Total Number of Authorizations with an associated claim^0
+Summary^589^1450^Total Number of Batches^0
+Summary^589^1450^Total Number of Claims Denied^0
+Summary^589^1450^Total Number of Claims in Adjudication^0
+Summary^589^1450^Total Number of Claims in Verify^0
+Summary^589^1450^Total Number of Claims Rejected^0
+Summary^589^1450^Total Number of Claims Scanned^0
+Summary^589^1450^Total Number of Claims Suspended^0
+Summary^589^1450^Total Number of Paid Claims^0
+Summary^657^1450^Total Number of Authorizations with an associated claim^0
+Summary^657^1450^Total Number of Batches^0
+Summary^657^1450^Total Number of Claims Denied^0
+Summary^657^1450^Total Number of Claims in Adjudication^0
+Summary^657^1450^Total Number of Claims in Verify^0
+Summary^657^1450^Total Number of Claims Rejected^0
+Summary^657^1450^Total Number of Claims Scanned^0
+Summary^657^1450^Total Number of Claims Suspended^0
+Summary^657^1450^Total Number of Paid Claims^0
+Summary^657A0^1450^Total Number of Authorizations with an associated claim^0
+Summary^657A0^1450^Total Number of Batches^0
+Summary^657A0^1450^Total Number of Claims Denied^0
+Summary^657A0^1450^Total Number of Claims in Adjudication^0
+Summary^657A0^1450^Total Number of Claims in Verify^0
+Summary^657A0^1450^Total Number of Claims Rejected^0
+Summary^657A0^1450^Total Number of Claims Scanned^0
+Summary^657A0^1450^Total Number of Claims Suspended^0
+Summary^657A0^1450^Total Number of Paid Claims^0
+Summary^657A4^1450^Total Number of Authorizations with an associated claim^0
+Summary^657A4^1450^Total Number of Batches^0
+Summary^657A4^1450^Total Number of Claims Denied^0
+Summary^657A4^1450^Total Number of Claims in Adjudication^0
+Summary^657A4^1450^Total Number of Claims in Verify^0
+Summary^657A4^1450^Total Number of Claims Rejected^0
+Summary^657A4^1450^Total Number of Claims Scanned^0
+Summary^657A4^1450^Total Number of Claims Suspended^0
+Summary^657A4^1450^Total Number of Paid Claims^0
+Summary^667^1450^Total Number of Authorizations with an associated claim^0
+Summary^667^1450^Total Number of Batches^0
+Summary^667^1450^Total Number of Claims Denied^0
+Summary^667^1450^Total Number of Claims in Adjudication^0
+Summary^667^1450^Total Number of Claims in Verify^0
+Summary^667^1450^Total Number of Claims Rejected^0
+Summary^667^1450^Total Number of Claims Scanned^0
+Summary^667^1450^Total Number of Claims Suspended^0
+Summary^667^1450^Total Number of Paid Claims^0

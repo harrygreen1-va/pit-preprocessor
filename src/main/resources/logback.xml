@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="etl_log_home" value="${etl_log_home:-logs}"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- see http://logback.qos.ch/manual/layouts.html -->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-2level %-22.22(%logger{0}) - %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <append>true</append>
+        <file>${etl_log_home}/fileetl.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-28.28(%logger{16}):%line - %message%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${etl_log_home}/fileetl-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- save validations to a separate file -->
+    <appender name="validation" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <append>true</append>
+        <file>${etl_log_home}/file-validation.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %message%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${etl_log_home}/file-validation-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+
+
+    <logger name="org" level="INFO"/>
+    <logger name="com" level="INFO"/>
+    <logger name="net" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+
+    <logger level="INFO" name="file-validation">
+        <appender-ref ref="validation"/>
+    </logger>
+
+    <logger level="DEBUG" name="pit">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="logfile"/>
+    </logger>
+
+
+    <root level="DEBUG"/>
+
+</configuration>

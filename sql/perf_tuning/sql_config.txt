@@ -1,0 +1,6 @@
+SQL Server Config
+PITEDR data e: 3.5TB
+PITEDR index: 3TB
+PITEDR index 2: 2TB
+Log L: 1TB
+Temp T: 1.5 TB

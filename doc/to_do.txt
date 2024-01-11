@@ -1,0 +1,30 @@
+----- Backlog:
+- automatic cutting of results based on the job config and based on the param
+- Include rejects into the audit report
+- Pick up the rejects, put on SFTP
+- preserve original files: original, processed, rejects
+
+- deduping in the combined file
+- Change FBCS validation job
+- Figure out deduping in the combined file?
+- Stats: number of claims
+
+
+
+--- Immediate improvements after release:
+- what can we load in parallel
+- validate all data types (replace with blanks?)
+- non conforming -- .prcd are not archived
+- rejects for FBCS, get rid of the validation jobs
+
+--- Longer term:
+Stats for each job in the DB
+Load in parallel
+
+anesth field
+SSH and archiving to Java
+
+Deferred: bug in ub update/make auth non current
+
+Log location: \\vaauspciapp43\ibm\VAPIT\scripts\fileproc\logs
+Non conforming: \\vaauspciapp43\ibm\VAPIT\data\files

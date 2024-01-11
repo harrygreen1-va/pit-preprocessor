@@ -1,0 +1,7 @@
+1: [Rendering_Facility_NPI, RenderingProvider]  
+2: [Rendering_Facility_NPI, RenderingProvider]  
+3: [Rendering_Facility_NPI, RenderingProvider]  
+4: [Rendering_Facility_NPI, RenderingProvider]  
+8: [Rendering_Facility_NPI, Box23, RenderingProvider]  
+9: [Rendering_Facility_NPI, Box23, RenderingProvider]  
+10: [Rendering_Facility_NPI, Box23]  

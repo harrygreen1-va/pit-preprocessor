@@ -1,0 +1,74 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build-Preprocessor
+
+# Controls when the action will run.
+on:
+  push:
+    branches-ignore:
+      - 'Release-*'
+      - 'master'
+      - 'gh_pages'
+    tags-ignore:
+      - '*.*' # We don't want this to run on release
+    paths-ignore:
+      - '**.md'
+      # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    name: Test build
+    runs-on: ubuntu-latest
+    concurrency: ${{ github.workflow }}-${{ matrix.language }}-${{ github.ref }}
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - java-version: 17.x
+            language: 'java'
+            experimental: false
+            distribution: 'temurin'
+    continue-on-error: ${{ matrix.experimental }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Get Branch
+      id: get_branch
+      run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+    - name: Echo Branch name
+      run: echo branch name is ${BRANCH_NAME}
+
+    - name: Setup Java ${{ matrix.java-version }}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ matrix.java-version }}
+        distribution: ${{ matrix.distribution }}
+
+    - name: Get short vars to build Relase version 
+      run: |
+        echo "COMMIT_ID=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+        echo "BUILD_ID=$(echo ${GITHUB_RUN_NUMBER})" >> $GITHUB_ENV
+        echo "POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+
+    - name: Set Release version env variable
+      run: |
+        echo "RELEASE_VERSION=${{env.POM_VERSION}}.${{env.BUILD_ID}}-${{env.COMMIT_ID}}" >> $GITHUB_ENV
+
+    - name: Build with maven
+      run: mvn clean package assembly:single -Dtest=PlainTestSuite --fail-at-end --show-version
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: fbcsFileEtl-${{ env.RELEASE_VERSION }}_JAVA${{ matrix.java-version }}_${{ matrix.distribution }}_distribution
+        path: ${{github.workspace}}/**/fbcsFileEtl*.zip
+        retention-days: 10

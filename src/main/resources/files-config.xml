@@ -1,0 +1,148 @@
+<files-config>
+	<file-config>
+        <pattern>CCNN-.*-DENT.*</pattern>
+        <columns-number>282</columns-number>
+        <conformant-validation>validation/ecams_dent_conformant_validations</conformant-validation>
+        <load>
+            provider/hcfa_claim_provider_load,
+            provider/hcfa_line_provider_load,
+            hcfa_ohi_load,
+            source_edits_load,
+            patient/ecams_hcfa_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/ecams_hcfa_update_keys
+        </postprocessing>
+    </file-config>
+
+    <file-config>
+        <pattern>CCRS-.*-DENT.*</pattern>
+        <columns-number>282</columns-number>
+        <conformant-validation>validation/ccrs_dent_conformant_validations</conformant-validation>
+        <load>
+            provider/hcfa_claim_provider_load,
+            provider/hcfa_line_provider_load,
+            hcfa_ohi_load,
+            source_edits_load,
+            patient/ccrs_hcfa_claim_patient_load
+        </load>
+        <postprocessing>
+			updatekeys/ecams_hcfa_update_keys
+		</postprocessing>
+    </file-config>
+
+    <file-config>
+        <pattern>CCRS-.*-UB04.*</pattern>
+        <!-- number of col in the concat file used by DataStage -->
+        <columns-number>428</columns-number>
+        <conformant-validation>validation/ccrs_ub_conformant_validations</conformant-validation>
+        <load>
+            provider/ecams_ub_claim_provider_load,
+            ub_ohi_load,
+            source_edits_load,
+            patient/ccrs_ub_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/ecams_ub_update_keys
+        </postprocessing>
+    </file-config>
+
+    <file-config>
+        <pattern>CCRS-.*-HCFA.*</pattern>
+        <columns-number>269</columns-number>
+        <conformant-validation>validation/ccrs_hcfa_conformant_validations</conformant-validation>
+        <load>
+            provider/hcfa_claim_provider_load,
+            provider/hcfa_line_provider_load,
+            hcfa_ohi_load,
+            source_edits_load,
+            patient/ccrs_hcfa_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/ecams_hcfa_update_keys
+        </postprocessing>
+    </file-config>
+
+
+    <file-config>
+        <pattern>CCNN-.*-UB04.*</pattern>
+        <!-- number of col in the concat file used by DataStage -->
+        <columns-number>428</columns-number>
+        <conformant-validation>validation/ecams_ub_conformant_validations</conformant-validation>
+        <load>
+            provider/ecams_ub_claim_provider_load,
+            ub_ohi_load,
+            source_edits_load,
+            patient/ecams_ub_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/ecams_ub_update_keys
+        </postprocessing>
+    </file-config>
+
+    <file-config>
+        <pattern>CCNN-.*-HCFA.*</pattern>
+        <columns-number>269</columns-number>
+        <conformant-validation>validation/ecams_vacs_hcfa_conformant_validations</conformant-validation>
+        <load>
+            provider/hcfa_claim_provider_load,
+            provider/hcfa_line_provider_load,
+            hcfa_ohi_load,
+            source_edits_load,
+            patient/ecams_hcfa_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/ecams_hcfa_update_keys
+        </postprocessing>
+    </file-config>
+
+
+    <file-config>
+        <pattern>VACS-.*-HCFA.*</pattern>
+        <columns-number>269</columns-number>
+        <conformant-validation>validation/ecams_vacs_hcfa_conformant_validations</conformant-validation>
+        <load>
+            provider/hcfa_claim_provider_load,
+            provider/hcfa_line_provider_load,
+            source_edits_load,
+            patient/fbcs_hcfa_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/fbcs_hcfa_update_keys
+        </postprocessing>
+    </file-config>
+
+    <file-config>
+        <pattern>VACS-.*-UB04.*</pattern>
+        <columns-number>428</columns-number>
+        <conformant-validation>validation/fbcs_ub_conformant_validations</conformant-validation>
+        <load>
+            provider/ecams_ub_claim_provider_load,
+            source_edits_load,
+            patient/fbcs_ub_claim_patient_load
+        </load>
+        <postprocessing>
+            updatekeys/fbcs_ub_update_keys
+        </postprocessing>
+    </file-config>
+
+
+	<!-- 
+		TODO: provider/ccrs_ncpdp_claim_provider_load
+		old .. Sergey said is in provider .. pharmacy/CCRS_ncpdp_claim_pharmacy_load
+            provider/ncpdp_line_provider_load,
+            ncpdp_ohi_load,
+            source_edits_load,
+            source_edits_tpa_load,
+	 -->
+    <file-config>
+        <pattern>CCRS-.*-NCPDP.*</pattern>
+        <columns-number>156</columns-number>
+        <conformant-validation>validation/ccrs_ncpdp_conformant_validations</conformant-validation>
+        <load>
+			provider/ccrs_ncpdp_claim_provider_load,
+            patient/ccrs_ncpdp_claim_patient_load
+        </load>
+        <postprocessing>updatekeys/ccrs_ncpdp_update_keys</postprocessing>
+    </file-config>
+</files-config>

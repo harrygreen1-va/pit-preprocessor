@@ -1,0 +1,27 @@
+HCFA:
+Trim(ClaimsDtl_in0.HCFAUniqueClaimID) <> '' And  
+Trim(ClaimsDtl_in0.Box25)             <> '' And  
+Trim(ClaimsDtl_in0.Box1A)             <> '' And 
+Trim(ClaimsDtl_in0.Box2)              <> '' And  
+Trim(ClaimsDtl_in0.Box24AFrom)        <> '' And 
+Trim(ClaimsDtl_in0.Box24B)            <> '' And   
+Trim(ClaimsDtl_in0.Box24DCPT)         <> '' And  
+Trim(ClaimsDtl_in0.Box24E)            <> '' And
+msgUnitCode ='' Then 'A' Else 'N'
+
+
+UB:
+If Trim(NullToValue(ClaimsDtl_in0.FederalTaxID,'') <> '')  And
+Trim(NullToValue(ClaimsDtl_in0.UB92UniqueClaimID,'') <> '')  And
+Trim(NullToValue(ClaimsDtl_in0.PatientName,'') <> '')  And
+Trim(NullToValue(ClaimsDtl_in0.Box60A,'') <> '')  And
+Trim(NullToValue(ClaimsDtl_in0.UBL_Box42,'') <> '')  And
+ msgUnitCode = '' 
+Then 'A' Else 'N'
+
+
+If ClaimsDtl_in0.db_id <> 'VACDB' THEN '' ELSE
+IF TrimLeadingTrailing(NullToEmpty(ClaimsDtl_in0.Unit_Code)) = '' THEN 'Missing Unit_Code  ' ELSE ''
+
+If ClaimsDtl_in0.db_id <> 'VACDB' THEN '' ELSE
+IF TrimLeadingTrailing(NullToEmpty(ClaimsDtl_in0.Unit_Code)) = '' THEN 'Missing Unit_Code  ' ELSE ''

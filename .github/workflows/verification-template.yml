@@ -1,0 +1,90 @@
+name: "CodeQL Verification"
+on:
+  workflow_call:
+    inputs:
+      language:
+        required: true
+        type: string
+permissions:
+  id-token: write
+  contents: read
+env:
+  file_path: codeql-scan-results-${{ inputs.language }}.csv/codeql-scan-results-${{ inputs.language }}.csv
+jobs:
+  codeql_verify:
+    name: Verify Code
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Download csv file
+        uses: actions/download-artifact@v3
+        with:
+          name: codeql-scan-results-${{ inputs.language }}
+          path: ${{ runner.temp }}/codeql-scan-results-${{ inputs.language }}.csv
+      - name: Get Critical count
+        id: critical_codeql_count
+        if: always()
+        run: |
+          critical_count=$( sudo cat ${{ runner.temp }}/${{ env.file_path }} |  awk -F'","' '$3 ~ /critical/ { count++ } END { print count }')
+          if [ -z ${critical_count} ]; then
+            critical_count=0
+          fi
+          echo "critical_count=${critical_count}" >> $GITHUB_ENV
+      - name: Get High count
+        id: high_codeql_count
+        if: always()
+        run: |
+          high_count=$( sudo cat ${{ runner.temp }}/${{ env.file_path }} |  awk -F'","' '$3 ~ /high/ { count++ } END { print count }')
+          if [ -z ${high_count} ]; then
+            high_count=0
+          fi
+          echo "high_count=${high_count}" >> $GITHUB_ENV
+      - name: Get Error count
+        id: error_codeql_count
+        if: always()
+        run: |
+          error_count=$( sudo cat ${{ runner.temp }}/${{ env.file_path }} |  awk -F'","' '$3 ~ /error/ { count++ } END { print count }')
+          if [ -z ${error_count} ]; then
+            error_count=0
+          fi
+          echo "error_count=${error_count}" >> $GITHUB_ENV
+      - name: Get Warning count
+        id: warning_codeql_count
+        if: always()
+        run: |
+          warning_count=$( sudo cat ${{ runner.temp }}/${{ env.file_path }} | awk -F'","' '$3 ~ /warning/ { count++ } END { print count }')
+          if [ -z ${warning_count} ]; then
+            warning_count=0
+          fi
+          echo "warning_count=${warning_count}" >> $GITHUB_ENV
+      - name: Fail if any CRITICAL
+        if: always()
+        run: |
+          if [ $critical_count -gt 0 ]; then
+            echo "Total Critical Error Count - $critical_count . For more reference see ${{ env.file_path }}"
+            exit ${critical_count}
+          fi
+      - name: Fail if any HIGH
+        if: always()
+        run: |
+          if [ $high_count -gt 0 ]; then
+            echo "Total High Error count - $high_count . For more reference see ${{ env.file_path }}"
+            exit ${high_count}
+          fi
+      - name: Fail if any ERRORS
+        if: always()
+        run: |
+          if [ $error_count -gt 0 ]; then
+            echo "Total Error count - $error_count . For more reference see ${{ env.file_path }}"
+            exit ${error_count}
+          fi
+      - name: Verification Summary
+        if: always()
+        run: |
+          echo "critical_count=${critical_count}"
+          echo "high_count=${high_count}"
+          echo "error_count=${error_count}"
+          echo "warning_count=${warning_count}"
